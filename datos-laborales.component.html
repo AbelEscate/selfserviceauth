@@ -1,0 +1,196 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">       
+          <ngb-tabset>
+            <ngb-tab title="Datos Laborales">
+                <ng-template ngbTabContent>
+                    <div class="row">
+                        <div class="col-12 m-t-30">                       
+                            <div class="card">
+                                <div class="card-header">
+                                   Información Laboral
+                                </div>
+                                <table>
+                                    <th>Nombre</th>
+                                    <th>Apellido Paterno</th>
+                                    <th>Apellido Materno </th>
+                                    <th>Fecha de Nacimiento</th>
+                                    <th>Tipo de Documento</th>
+                                    <th>N° de Documento</th>
+                                    <th>Pais Emisor</th>
+                                    <th>Situacion</th>
+                                    <th>Nacionalidad</th>
+                                    <th>Estado Civil</th>
+                                  <tbody>
+                                      <tr *ngFor="let file of datoslaborales">
+                                       
+                                            <td>{{file.nombre}}</td>
+                                            <td>{{file.apellidoPaterno}}</td>
+                                            <td>{{file.apellidoMaterno}}</td>
+                                            <td>{{file.fechaNacimiento}}</td>
+                                            <td>{{file.tipoDocumento}}</td>
+                                            <td>{{file.numeroDocumento}}</td>
+                                            <td>{{file.paisEmisor}}</td>
+                                            <td>{{file.situacion}}</td>
+                                            <td>{{file.nacionalidad}}</td>
+                                            <td>{{file.estadoCivil}}</td>
+                                   
+                                      </tr>
+                                  </tbody>
+                              </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <b>Insertar Datos</b>
+              </ng-template>
+              <ng-template ngbTabContent>
+                  <div class="row">
+                      <div class="col-12 m-t-30">                       
+                          <div class="card">
+                              <div class="card-header">
+                                  Informacion General
+                              </div>
+                              <form #heroForm="ngForm">
+                                <div [hidden]="heroForm.submitted">
+                                    <div class="form-group row" >
+                                      <label for="example-text-input" class="col-2 col-form-label">Codigo Trabajador</label>
+                                      <div class="col-11">
+                                          <input class="form-control" [(ngModel)]="archiTemp.codigoTrabajador" name="archiTemp.codigoTrabajador" type="text"  id="example-text-input">
+                                      </div>
+                                       <label for="example-text-input" class="col-2 col-form-label">Nombre</label>
+                                       <div class="col-11">
+                                           <input class="form-control" [(ngModel)]="archiTemp.nombre" name="archiTemp.nombre" type="text"  id="example-text-input">
+                                       </div>
+                                        <label for="example-text-input" class="col-2 col-form-label">Apellido Paterno</label>
+                                        <div class="col-11">
+                                           <input class="form-control" [(ngModel)]="archiTemp.apellidoPaterno" name="archiTemp.apellidoPaterno" type="text"  id="example-text-input">
+                                        </div>
+                                        <label for="example-text-input" class="col-2 col-form-label">Apellido Materno</label>
+                                        <div class="col-11">
+                                            <input class="form-control" [(ngModel)]="archiTemp.apellidoMaterno" name="archiTemp.apellidoMaterno" type="text" id="example-text-input">
+                                        </div>
+                                        <label for="example-text-input" class="col-2 col-form-label">Fecha de Nacimiento</label>
+                                        <div class="col-11">
+                                          <input class="form-control" [(ngModel)]="archiTemp.fechaNacimiento" name="archiTemp.fechaNacimiento" type="Date"  id="example-text-input">
+                                      </div>
+                                      <label for="example-text-input" class="col-2 col-form-label">Tipo de Documento</label>
+                                        <div class="col-11">
+                                          <input class="form-control" [(ngModel)]="archiTemp.tipoDocumento" name="archiTemp.tipoDocumento" type="number"  id="example-text-input">
+                                      </div>
+                                      <label for="example-text-input" class="col-2 col-form-label">DNI</label>
+                                        <div class="col-11">
+                                          <input class="form-control" [(ngModel)]="archiTemp.numeroDocumento" name="archiTemp.numeroDocumento" type="number"  id="example-text-input">
+                                      </div>
+                                      <label for="example-text-input" class="col-2 col-form-label">Pais Emisor</label>
+                                        <div class="col-11">
+                                          <input class="form-control" [(ngModel)]="archiTemp.paisEmisor" name="archiTemp.paisEmisor" type="text"  id="example-text-input">
+                                      </div>
+                                      <label for="example-text-input" class="col-2 col-form-label">Situacion</label>
+                                        <div class="col-11">
+                                          <input class="form-control" [(ngModel)]="archiTemp.situacion" name="archiTemp.situacion" type="number"  id="example-text-input">
+                                      </div>
+                                      <label for="example-text-input" class="col-2 col-form-label">Nacionalidad</label>
+                                        <div class="col-11">
+                                          <input class="form-control" [(ngModel)]="archiTemp.nacionalidad" name="archiTemp.nacionalidad" type="number"  id="example-text-input">
+                                      </div>
+                                      <label for="example-text-input" class="col-2 col-form-label">Estado Civil</label>
+                                        <div class="col-11">
+                                          <input class="form-control" [(ngModel)]="archiTemp.estadoCivil" name="archiTemp.estadoCivil" type="number"  id="example-text-input">
+                                      </div>
+                                     
+                                      
+                                    </div>                                          
+                                    <hr />
+                                    <button (click)="buttonClicked()">Insertar</button>
+                                </div>                                     
+                            </form>
+                          </div>
+                      </div>
+                  </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--
+  <table>
+    <thead>
+        <th>Nombre</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno </th>
+        <th>Fecha de Nacimiento</th>
+        <th>Tipo de Documento</th>
+        <th>N° de Documento</th>
+        <th>Pais Emisor</th>
+        <th>Situacion</th>
+        <th>Nacionalidad</th>
+        <th>Estado Civil</th>
+        
+    </thead>
+    <tbody>
+        <tr *ngFor="let file of datosLaborales">
+            <td>{{file.nombre}}</td>
+            <td>{{file.apellidoPaterno}}</td>
+            <td>{{file.apellidoMaterno}}</td>
+            <td>{{file.fechaNacimiento}}</td>
+            <td>{{file.tipoDocumento}}</td>
+            <td>{{file.numeroDocumento}}</td>
+            <td>{{file.paisEmisor}}</td>
+            <td>{{file.situacion}}</td>
+            <td>{{file.nacionalidad}}</td>
+            <td>{{file.estadoCivil}}</td>
+        </tr>
+    </tbody>
+</table>-->
+
+<!--
+
+
+
+    <ng-template ngbTabContent>
+                  <div class="row">
+                      <div class="col-12 m-t-30">                       
+                          <div class="card">
+                              <div class="card-header">
+                                  Archivos
+                              </div>
+                              <table>
+                                <thead>
+                                    <th>Codigo</th>
+                                    <th>Descripcion</th>
+                                    <th>Categoria </th>
+                                    <th>Observación</th>
+                                    <th>Estado</th>
+                                    <th>Fecha de creacion</th>
+                                    <th>Creado por</th>
+                                    
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let file of archivos">
+                                        <td>{{file.codigoArchivo}}</td>
+                                        <td>{{file.descripcion}}</td>
+                                        <td>{{file.categoriaFile}}</td>
+                                        <td>{{file.observacion}}</td>
+                                        <td>{{file.estado}}</td>
+                                        <td>{{file.createdDate}}</td>
+                                        <td>{{file.createBy}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                      </div>
+                  </div>
+                  
+              </ng-template>
+-->
